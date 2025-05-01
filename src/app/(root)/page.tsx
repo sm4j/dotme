@@ -1,9 +1,10 @@
 import Image from "next/image";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa"; // Import social media icons
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import "./styles.css";
 
 export const metadata = {
   title: "dotme",
-  description: "Still a work in progress", 
+  description: "Still a work in progress",
 };
 
 export default function Home() {
@@ -12,24 +13,9 @@ export default function Home() {
       {/* Desktop View */}
       <div className="hidden sm:flex min-h-screen relative">
         {/* Left Section: Semicircle */}
-        <div
-          className="absolute top-0 left-0 w-1/2 h-full"
-          style={{
-            clipPath: "circle(100% at 0% 50%)", // Creates a semicircle
-            background: "linear-gradient(to bottom, #6e1602, black)", // Gradient from #6e1602 to black
-          }}
-        >
+        <div className="profile-section absolute top-0 left-0 w-1/2 h-full">
           {/* Background Circle */}
-          <div
-            className="absolute left-1/4 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
-            style={{
-              backgroundImage: "url('/pathway.gif')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              width: "300px", // Adjust size of the circle
-              height: "300px", // Adjust size of the circle
-            }}
-          ></div>
+          <div className="background-circle absolute left-1/4 top-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
 
           {/* Profile Image */}
           <div className="absolute left-1/4 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
@@ -37,7 +23,7 @@ export default function Home() {
               className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145]"
               src="/pfp.png"
               alt="Profile Picture"
-              width={180} // Adjust size of the profile image
+              width={180}
               height={180}
               priority
             />
@@ -87,24 +73,9 @@ export default function Home() {
       {/* Mobile View */}
       <div className="flex sm:hidden flex-col min-h-screen">
         {/* Top Section: Semicircle */}
-        <div
-          className="w-full h-[40vh] relative overflow-hidden" // Reduced height from 50vh to 40vh
-          style={{
-            clipPath: "circle(90% at 50% 0%)", // Slightly smaller semicircle
-            background: "linear-gradient(to bottom, #6e1602, black)", // Gradient from #6e1602 to black
-          }}
-        >
+        <div className="mobile-semicircle w-full h-[40vh] relative overflow-hidden">
           {/* Background Circle */}
-          <div
-            className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 rounded-full"
-            style={{
-              backgroundImage: "url('/pathway.gif')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              width: "200px", // Smaller circle for mobile
-              height: "200px", // Smaller circle for mobile
-            }}
-          ></div>
+          <div className="mobile-background-circle absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
 
           {/* Profile Image */}
           <div className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2">
@@ -112,7 +83,7 @@ export default function Home() {
               className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145]"
               src="/pfp.png"
               alt="Profile Picture"
-              width={150} // Smaller profile image for mobile
+              width={150}
               height={150}
               priority
             />

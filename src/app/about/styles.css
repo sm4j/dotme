@@ -1,0 +1,16 @@
+.wip-container {
+  background-color: black;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wip-text {
+  color: white;
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: bold;
+  letter-spacing: 0.5rem;
+  text-align: center;
+  font-family: var(--font-geist-mono);
+}

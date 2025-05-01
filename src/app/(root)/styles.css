@@ -1,0 +1,27 @@
+/* Desktop Styles */
+.profile-section {
+  clip-path: circle(100% at 0% 50%);
+  background: linear-gradient(to bottom, #6e1602, black);
+}
+
+.background-circle {
+  background-image: url('/pathway.gif');
+  background-size: cover;
+  background-position: center;
+  width: 300px;
+  height: 300px;
+}
+
+/* Mobile Styles */
+.mobile-semicircle {
+  clip-path: circle(90% at 50% 0%);
+  background: linear-gradient(to bottom, #6e1602, black);
+}
+
+.mobile-background-circle {
+  background-image: url('/pathway.gif');
+  background-size: cover;
+  background-position: center;
+  width: 200px;
+  height: 200px;
+}
