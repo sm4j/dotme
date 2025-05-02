@@ -1,14 +1,75 @@
+'use client'
+
 import Image from "next/image";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import MobileView from "./MobileView";
 import "./styles.css";
 
-export const metadata = {
-  title: "dotme",
-  description: "Still a work in progress",
-};
-
 export default function Home() {
+  const handlePfpClick = () => {
+    const pfp = document.querySelector('.profile-image') as HTMLElement;
+    const toolbar = document.querySelector('.social-toolbar') as HTMLElement;
+    const showcase = document.querySelector('.project-showcase') as HTMLElement;
+    const overlay = document.createElement('div');
+    
+    // Create new centered profile image
+    const centeredPfp = document.createElement('img');
+    centeredPfp.src = '/pfp.png';
+    centeredPfp.className = 'centered-pfp rounded-full';
+    centeredPfp.width = 180;
+    centeredPfp.height = 180;
+    centeredPfp.style.objectFit = 'cover';
+    document.body.appendChild(centeredPfp);
+    
+    // Create back button
+    const backButton = document.createElement('button');
+    backButton.textContent = 'take me back';
+    backButton.className = 'back-button';
+    backButton.onclick = () => window.location.reload();
+    document.body.appendChild(backButton);
+    
+    // Create and configure audio element
+    const audio = new Audio('/troll.mp3'); 
+    audio.volume = 0.5; // Adjust volume as needed
+    audio.loop = true; // Add this line to make the audio loop
+    
+    // Add black overlay
+    overlay.className = 'black-overlay';
+    document.body.appendChild(overlay);
+    
+    // Trigger reflow
+    void overlay.offsetWidth;
+    void centeredPfp.offsetWidth;
+    
+    // Activate overlay and show centered pfp
+    overlay.classList.add('active');
+    
+    if (pfp) {
+      pfp.classList.add('destructive-pfp');
+    }
+
+    // Add slight delay for toolbar destruction
+    setTimeout(() => {
+      if (toolbar) {
+        toolbar.classList.add('destroy-element');
+      }
+    }, 400);
+
+    // Add longer delay for showcase destruction
+    setTimeout(() => {
+      if (showcase) {
+        showcase.classList.add('destroy-element');
+      }
+    }, 800);
+
+    // Show centered pfp and back button after destruction animation
+    setTimeout(() => {
+      centeredPfp.classList.add('visible');
+      backButton.classList.add('visible');
+      audio.play().catch(err => console.log('Audio playback failed:', err));
+    }, 2000);
+  };
+
   return (
     <>
       {/* Desktop View - Only show on large screens */}
@@ -21,17 +82,18 @@ export default function Home() {
           {/* Profile Image */}
           <div className="absolute left-1/4 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
             <Image
-              className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145]"
+              className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] profile-image"
               src="/pfp.png"
               alt="Profile Picture"
               width={180}
               height={180}
               priority
+              onClick={handlePfpClick}
             />
           </div>
 
           {/* Social Media Toolbar */}
-          <div className="absolute left-[52%] top-1/2 transform -translate-y-1/2">
+          <div className="absolute left-[52%] top-1/2 transform -translate-y-1/2 social-toolbar">
             <div className="flex gap-4 bg-black text-white p-4 rounded-lg shadow-lg mb-4">
               <a
                 href="https://github.com/sm4j"
@@ -72,7 +134,7 @@ export default function Home() {
         </div>
 
         {/* Right Section */}
-        <div className="ml-auto w-1/2 flex flex-col justify-center items-start p-8 sm:p-16">
+        <div className="ml-auto w-1/2 flex flex-col justify-center items-start p-8 sm:p-16 project-showcase">
           <h1 className="text-2xl sm:text-3xl font-bold mb-8">Project Showcase</h1>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">

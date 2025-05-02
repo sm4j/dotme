@@ -48,3 +48,138 @@
     height: 160px;
   }
 }
+
+@keyframes destroyAndRotate {
+  0% {
+    transform: scale(1) rotate(0deg) translateX(0);
+    z-index: 10;
+  }
+  100% {
+    transform: scale(3) rotate(45deg) translateX(100vw);
+    z-index: 10;
+  }
+}
+
+@keyframes destructivePath {
+  0% {
+    transform: scale(1) rotate(0deg);
+    z-index: 100;
+  }
+  20% {
+    transform: scale(1.5) rotate(45deg) translateX(100px);
+  }
+  40% {
+    transform: scale(2) rotate(-45deg) translateX(200px);
+  }
+  60% {
+    transform: scale(2.5) rotate(45deg) translateX(300px);
+  }
+  80% {
+    transform: scale(3) rotate(-45deg) translateX(400px);
+  }
+  100% {
+    transform: scale(3.5) rotate(0deg) translateX(500px);
+  }
+}
+
+@keyframes centeredRotation {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(3);
+  }
+  25% {
+    transform: translate(-50%, -50%) rotate(45deg) scale(3);
+  }
+  75% {
+    transform: translate(-50%, -50%) rotate(-45deg) scale(3);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(3);
+  }
+}
+
+.profile-image {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.profile-image.destroying {
+  animation: destroyAndRotate 3s ease-in-out forwards;
+}
+
+.destructive-pfp {
+  animation: destructivePath 2s forwards;
+  pointer-events: none;
+  position: relative;
+  z-index: 100;
+}
+
+.centered-pfp {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 200;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  animation: centeredRotation 4s ease-in-out infinite;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.145);
+}
+
+.centered-pfp.visible {
+  opacity: 1;
+}
+
+.destroy-element {
+  animation: shake 0.3s ease-in-out;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px) rotate(-5deg); }
+  75% { transform: translateX(10px) rotate(5deg); }
+}
+
+.black-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.black-overlay.active {
+  opacity: 1;
+}
+
+.back-button {
+  position: fixed;
+  left: 50%;
+  top: 88%;  /* Changed from 65% to 75% to move it lower */
+  transform: translateX(-50%);
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 200;
+}
+
+.back-button.visible {
+  opacity: 1;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}

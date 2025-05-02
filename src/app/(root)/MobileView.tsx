@@ -12,14 +12,19 @@ export default function MobileView() {
 
           {/* Profile Image */}
           <div className="absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2">
-            <Image
-              className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145]"
-              src="/pfp.png"
-              alt="Profile Picture"
-              width={120}
-              height={120}
-              priority
-            />
+            <div className="relative">
+              <Image
+                className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145]"
+                src="/pfp.png"
+                alt="Profile Picture"
+                width={120}
+                height={120}
+                priority
+              />
+              <div className="semi-circle-button">
+                <span className="text-white text-xs">click me</span>
+              </div>
+            </div>
           </div>
 
           {/* Social Media Toolbar */}
