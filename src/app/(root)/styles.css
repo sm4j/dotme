@@ -2,6 +2,7 @@
 .profile-section {
   clip-path: circle(100% at 0% 50%);
   background: linear-gradient(to bottom, #6e1602, black);
+  transition: width 0.3s ease-out;
 }
 
 .background-circle {
@@ -24,4 +25,26 @@
   background-position: center;
   width: 200px;
   height: 200px;
+}
+
+@media (orientation: landscape) {
+  .mobile-semicircle {
+    clip-path: circle(100% at 0% 50%);
+  }
+  
+  .mobile-background-circle {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (orientation: portrait) {
+  .mobile-semicircle {
+    clip-path: circle(90% at 50% 0%);
+  }
+  
+  .mobile-background-circle {
+    width: 160px;
+    height: 160px;
+  }
 }
