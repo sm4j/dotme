@@ -21,14 +21,11 @@ export default function MobileView() {
                 height={120}
                 priority
               />
-              <div className="semi-circle-button">
-                <span className="text-white text-xs">click me</span>
-              </div>
             </div>
           </div>
 
           {/* Social Media Toolbar */}
-          <div className="absolute left-1/2 top-[65%] transform -translate-x-1/2 flex gap-4 bg-black text-white p-3 rounded-lg shadow-lg">
+          <div className="absolute left-1/2 top-[63%] transform -translate-x-1/2 flex gap-4 bg-black text-white p-3 rounded-lg shadow-lg">
             <a href="https://github.com/sm4j" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
               <FaGithub size={20} />
             </a>
@@ -41,7 +38,7 @@ export default function MobileView() {
           </div>
 
           {/* Navigation Menu */}
-          <div className="absolute left-1/2 top-[80%] transform -translate-x-1/2 flex gap-3 text-white text-sm">
+          <div className="absolute left-1/2 top-[78%] transform -translate-x-1/2 flex gap-3 text-white text-sm">
             <a href="/about" className="hover:text-gray-400">About Me</a>
             <span className="text-gray-500">•</span>
             <a href="/resume" className="hover:text-gray-400">Resume</a>
