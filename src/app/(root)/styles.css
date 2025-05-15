@@ -1,7 +1,7 @@
 /* Desktop Styles */
 .profile-section {
-  clip-path: circle(100% at 0% 50%);
-  background: linear-gradient(to bottom, #6e1602, black);
+  clip-path: circle(150% at -25% 50%);
+  background: radial-gradient(circle at 10% 50%, #6e1602 15%, #000000 90%);
   transition: width 0.3s ease-out;
 }
 
@@ -11,12 +11,14 @@
   background-position: center;
   width: 300px;
   height: 300px;
+  opacity: 0.8;  /* Optional: slightly reduce opacity for better blending */
+  mix-blend-mode: overlay;  /* Help blend with the gradient */
 }
 
 /* Mobile Styles */
 .mobile-semicircle {
-  clip-path: circle(90% at 50% 0%);
-  background: linear-gradient(to bottom, #6e1602, black);
+  clip-path: circle(150% at 50% -25%);
+  background: radial-gradient(circle at 50% 20%, #6e1602 0%, #000000 70%);
 }
 
 .mobile-background-circle {
@@ -29,7 +31,9 @@
 
 @media (orientation: landscape) {
   .mobile-semicircle {
-    clip-path: circle(100% at 0% 50%);
+     clip-path: circle(150% at -25% 50%);
+    background: radial-gradient(circle at 15% 50%, #6e1602 0%, #000000 90%);
+    transition: width 0.3s ease-out;
   }
   
   .mobile-background-circle {

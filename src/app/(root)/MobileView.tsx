@@ -5,7 +5,8 @@ export default function MobileView() {
   return (
     <div className="xl:hidden min-h-screen">
       {/* Portrait Mobile View */}
-      <div className="flex landscape:hidden flex-col min-h-screen">
+      <div className="flex landscape:hidden flex-col min-h-screen"
+      style={{ background: "#000000" }}>
         <div className="mobile-semicircle w-full h-[40vh] relative overflow-hidden">
           {/* Background Circle */}
           <div className="mobile-background-circle absolute left-1/2 top-1/3 transform -translate-x-1/2 -translate-y-1/2 rounded-full"></div>
@@ -48,7 +49,8 @@ export default function MobileView() {
         </div>
 
         {/* Project Showcase - Portrait */}
-        <div className="px-4 py-6 flex-1">
+        <div className="px-4 py-6 flex-1"
+        style={{ background: "#000000" }}>
           <h1 className="text-xl font-bold mb-4 text-center">Project Showcase</h1>
           <div className="flex flex-col gap-4 max-w-[50%] mx-auto">
             <ProjectCard
@@ -80,7 +82,8 @@ export default function MobileView() {
       </div>
 
       {/* Landscape Mobile View */}
-      <div className="hidden landscape:flex min-h-screen">
+      <div className="hidden landscape:flex min-h-screen"
+      style={{ background: "#000000" }}>
         {/* Left Section */}
         <div className="w-1/2 mobile-semicircle relative overflow-hidden">
           {/* Background Circle */}
@@ -130,7 +133,8 @@ export default function MobileView() {
         </div>
 
         {/* Right Section - Landscape */}
-        <div className="w-1/2 p-4 overflow-y-auto flex flex-col justify-center">
+        <div className="w-1/2 p-4 overflow-y-auto flex flex-col justify-center"
+        style={{ background: "#000000" }}>
           <h1 className="text-2xl font-bold mb-4 text-center">Project Showcase</h1>
           <div className="grid grid-cols-3 gap-3 w-[100%] mx-auto">
             <ProjectCard

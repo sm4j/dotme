@@ -85,8 +85,8 @@ export default function Home() {
               className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] profile-image"
               src="/pfp.png"
               alt="Profile Picture"
-              width={180}
-              height={180}
+              width={225}
+              height={225}
               priority
               onClick={handlePfpClick}
             />
@@ -134,7 +134,8 @@ export default function Home() {
         </div>
 
         {/* Right Section */}
-        <div className="ml-auto w-1/2 flex flex-col justify-center items-start p-8 sm:p-16 project-showcase">
+        <div className="ml-auto w-1/2 flex flex-col justify-center items-start p-8 sm:p-16 project-showcase" 
+             style={{ background: "#000000" }}>
           <h1 className="text-2xl sm:text-3xl font-bold mb-8">Project Showcase</h1>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
