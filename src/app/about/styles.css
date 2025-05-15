@@ -1,16 +1,168 @@
-.wip-container {
-  background-color: black;
+.about-container {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #000000;
+  overflow: hidden;
+  position: relative;
 }
 
-.wip-text {
+.animated-background {
+  position: fixed; /* Changed from absolute to fixed */
+  top: -20%; /* Start above viewport */
+  left: 0;
+  width: 100%;
+  height: 120%; /* Extend beyond viewport */
+  z-index: 0;
+  overflow: hidden;
+}
+
+.raindrop {
+  position: absolute;
+  background: linear-gradient(180deg, 
+    rgba(110, 22, 2, 0.9) 0%,
+    rgba(110, 22, 2, 0.3) 40%,
+    rgba(110, 22, 2, 0.1) 80%,
+    rgba(110, 22, 2, 0) 100%
+  );
+  border-radius: 2px;
+  pointer-events: none;
+  filter: blur(1px);
+  transform-origin: center top;
+}
+
+.card-stack {
+  position: relative;
+  width: 320px;
+  height: 400px;
+  perspective: 1000px;
+  z-index: 2; /* Ensure card stack stays above rain */
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(110, 22, 2, 0.95) 0%,
+    rgba(69, 16, 2, 0.9) 100%
+  );
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
   color: white;
-  font-size: clamp(4rem, 15vw, 12rem);
+  cursor: grab;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* Add decorative pathway gif overlay */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/pathway.gif');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* Ensure content stays above the background */
+.card h2, .card p {
+  position: relative;
+  z-index: 1;
+}
+
+/* Add subtle shine effect */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: skewX(-15deg);
+  animation: shine 8s infinite;
+}
+
+@keyframes shine {
+  0% { left: -100%; }
+  20% { left: 200%; }
+  100% { left: 200%; }
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
   font-weight: bold;
-  letter-spacing: 0.5rem;
-  text-align: center;
-  font-family: var(--font-geist-mono);
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+.card.active {
+  transform: translateY(0) scale(1) !important;
+}
+
+.profile-picture-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.back-button {
+  position: relative;
+  z-index: 2;
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, 
+    rgba(110, 22, 2, 0.95) 0%,
+    rgba(69, 16, 2, 0.9) 100%
+  );
+  color: white;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.back-button svg {
+  width: 20px;
+  height: 20px;
 }
